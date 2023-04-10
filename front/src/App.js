@@ -12,7 +12,7 @@ import './css/style.css';
 
 function App() {
   return (
-   <Home />
+   <Login />
   );
 }
 
