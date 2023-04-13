@@ -1,12 +1,33 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react'
 import { RiMailLine } from 'react-icons/ri';
 import { BsLock } from 'react-icons/bs';
 import duini from '../img/duino.png';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
 function Login(){
     const [username, setUsername] = useState();
+    const [userExist, setUserExist] = useState()
+    const API_BASE_URL = "https://server.duinocoin.com/balances.json";
+    const navigate = useNavigate();
+    
+    useEffect(() => {
+        axios.get(API_BASE_URL)
+            .then(response => {
+                setUserExist(response.data.username);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }, []);
     const handleSubmit = (event) => {
         event.preventDefault();
         
+
+        if(userExist){
+            localStorage.setItem("username", username);
+            navigate('/');
+        }
     }
     const handleChange = (event) => {
         setUsername(event.target.value);
