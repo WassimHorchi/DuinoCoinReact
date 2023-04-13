@@ -4,9 +4,8 @@ import './App.css';
 import Login from './pages/login';
 import Home from './pages/Home';
 import './css/main.css';
-import './css/util.css';
-import './css/bootstrap.min.css';
-import './css/style.css';
+
+
 
 
 
