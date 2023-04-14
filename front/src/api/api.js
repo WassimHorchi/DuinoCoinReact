@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function getDuinoPrice(){
+function useDuinoPrice(){
     const [price, setPrice] = useState('');
     const API_BASE_URL = 'https://server.duinocoin.com/api.json';
 
@@ -15,12 +15,10 @@ function getDuinoPrice(){
             });
     }, []);
 
-    return (
-        {price}
-    );
+    return price;
 }
 
-function getAllTimeMined(){
+function useAllTimeMined(){
     const [mined, setMined] = useState('');
     const API_BASE_URL = 'https://server.duinocoin.com/api.json';
 
@@ -34,12 +32,10 @@ function getAllTimeMined(){
             });
     }, []);
 
-    return (
-        {mined}
-    );
+    return mined;
 }
 
-function getHashRate(){
+function useHashRate(){
     const [hashRate, setHashRate] = useState('');
     const API_BASE_URL = 'https://server.duinocoin.com/api.json';
 
@@ -53,12 +49,10 @@ function getHashRate(){
             });
     }, []);
 
-    return (
-        {hashRate}
-    );
+    return hashRate;
 }
 
-function getNetEnergyUsage(){
+function useNetEnergyUsage(){
     const [energy, setEnergy] = useState('');
     const API_BASE_URL = 'https://server.duinocoin.com/api.json';
 
@@ -72,12 +66,10 @@ function getNetEnergyUsage(){
             });
     }, []);
 
-    return (
-        {energy}
-    );
+    return energy;
 }
 
-function getServerCPU(){
+function useServerCPU(){
     const [cpu, setCpu] = useState('');
     const API_BASE_URL = 'https://server.duinocoin.com/api.json';
 
@@ -91,12 +83,10 @@ function getServerCPU(){
             });
     }, []);
 
-    return (
-        {cpu}
-    );
+    return cpu;
 }
 
-function getServerRAM(){
+function useServerRAM(){
     const [ram, setRam] = useState('');
     const API_BASE_URL = 'https://server.duinocoin.com/api.json';
 
@@ -110,12 +100,10 @@ function getServerRAM(){
             });
     }, []);
 
-    return (
-        {ram}
-    );
+    return ram;
 }
 
-function getServerVersion(){
+function useServerVersion(){
     const [version, setVersion] = useState('');
     const API_BASE_URL = 'https://server.duinocoin.com/api.json';
 
@@ -129,17 +117,15 @@ function getServerVersion(){
             });
     }, []);
 
-    return (
-        {version}
-    );
+    return version;
 }
 
 export {
-    getDuinoPrice,
-    getAllTimeMined,
-    getHashRate,
-    getNetEnergyUsage,
-    getServerCPU,
-    getServerRAM,
-    getServerVersion
+    useDuinoPrice,
+    useAllTimeMined,
+    useHashRate,
+    useNetEnergyUsage,
+    useServerCPU,
+    useServerRAM,
+    useServerVersion
 };

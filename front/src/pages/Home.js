@@ -1,24 +1,211 @@
 import React from 'react';
+import {useDuinoPrice,useAllTimeMined,useHashRate,useNetEnergyUsage,useServerCPU,useServerRAM,useServerVersion} from "../api/api";
+import { IoMdAnalytics } from 'react-icons/io';
+import { FaDollarSign,FaCoins,FaTachometerAlt,FaBolt , FaMicrochip, FaMemory, FaInfoCircle} from 'react-icons/fa';
 
 function Home()
 {
+    const price = useDuinoPrice();
+    const mined = useAllTimeMined();
+    const hash = useHashRate();
+    const energy = useNetEnergyUsage();
+    const cpu = useServerCPU();
+    const ram = useServerRAM();
+    const version = useServerVersion();
     return(
         <>
             <div class="limiter">
-                <div className='container-login100'>
-                    <div className='container'>
-                        <div className='title'>
-                            <h2>Welcome! you login as Wissem</h2>
-                        </div>
-
-                        <div className='data-container'>
-                            <div className='card-data'>
-                                <label>Wissem, you have</label>
-                                <h1>1234556</h1>
-                            </div>
-                        </div>
+                <div className='container-login100' style={{display : "block"}}>
+                    <div>
+                        <h2 className='text text-white'>Welcome, <span className='font-bold'>Wissem</span></h2>
                     </div>
-                    
+                <div class="flex flex-wrap -mx-3 mb-6 ">
+          
+          <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+              <div class="flex-auto p-4">
+                <div class="flex flex-row -mx-3">
+                  <div class="flex-none w-2/3 max-w-full px-3">
+                    <div>
+                      <p class="mb-0 font-sans font-semibold leading-normal text-sm">Your Mining Amount</p>
+                      <h5 class="mb-0 font-bold">
+                        1,0258855455
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="px-3 text-right basis-1/3">
+                    <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                      <i class="text-lg flex items-center h-full justify-center text-white "><IoMdAnalytics /></i>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        
+          <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+              <div class="flex-auto p-4">
+                <div class="flex flex-row -mx-3">
+                  <div class="flex-none w-2/3 max-w-full px-3">
+                    <div>
+                      <p class="mb-0 font-sans font-semibold leading-normal text-sm">Duino Price (USD)</p>
+                      <h5 class="mb-0 font-bold">
+                        {price}
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="px-3 text-right basis-1/3">
+                    <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                        <i class="text-lg flex items-center h-full justify-center text-white "><FaDollarSign /></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+              <div class="flex-auto p-4">
+                <div class="flex flex-row -mx-3">
+                  <div class="flex-none w-2/3 max-w-full px-3">
+                    <div>
+                      <p class="mb-0 font-sans font-semibold leading-normal text-sm">All Time Mined</p>
+                      <h5 class="mb-0 font-bold">
+                        {mined}
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="px-3 text-right basis-1/3">
+                    <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                    <i class="text-lg flex items-center h-full justify-center text-white "><FaCoins /></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4">
+            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+              <div class="flex-auto p-4">
+                <div class="flex flex-row -mx-3">
+                  <div class="flex-none w-2/3 max-w-full px-3">
+                    <div>
+                      <p class="mb-0 font-sans font-semibold leading-normal text-sm">Hash Rate</p>
+                      <h5 class="mb-0 font-bold">
+                        {hash}
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="px-3 text-right basis-1/3">
+                    <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                        <i class="text-lg flex items-center h-full justify-center text-white "><FaTachometerAlt  /></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+                <div class="flex flex-wrap -mx-3">
+          
+          <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+              <div class="flex-auto p-4">
+                <div class="flex flex-row -mx-3">
+                  <div class="flex-none w-2/3 max-w-full px-3">
+                    <div>
+                      <p class="mb-0 font-sans font-semibold leading-normal text-sm">Net Energy Usage</p>
+                      <h5 class="mb-0 font-bold">
+                        {energy}
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="px-3 text-right basis-1/3">
+                    <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                    <i class="text-lg flex items-center h-full justify-center text-white "><FaBolt   /></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        
+          <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+              <div class="flex-auto p-4">
+                <div class="flex flex-row -mx-3">
+                  <div class="flex-none w-2/3 max-w-full px-3">
+                    <div>
+                      <p class="mb-0 font-sans font-semibold leading-normal text-sm">Server CPU</p>
+                      <h5 class="mb-0 font-bold">
+                        {cpu}
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="px-3 text-right basis-1/3">
+                    <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                    <i class="text-lg flex items-center h-full justify-center text-white "><FaMicrochip /></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+              <div class="flex-auto p-4">
+                <div class="flex flex-row -mx-3">
+                  <div class="flex-none w-2/3 max-w-full px-3">
+                    <div>
+                      <p class="mb-0 font-sans font-semibold leading-normal text-sm">Server RAM</p>
+                      <h5 class="mb-0 font-bold">
+                        {ram}
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="px-3 text-right basis-1/3">
+                    <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                    <i class="text-lg flex items-center h-full justify-center text-white "><FaMemory  /></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4">
+            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+              <div class="flex-auto p-4">
+                <div class="flex flex-row -mx-3">
+                  <div class="flex-none w-2/3 max-w-full px-3">
+                    <div>
+                      <p class="mb-0 font-sans font-semibold leading-normal text-sm">Server Version</p>
+                      <h5 class="mb-0 font-bold">
+                        {version}
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="px-3 text-right basis-1/3">
+                    <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                    <i class="text-lg flex items-center h-full justify-center text-white "><FaInfoCircle  /></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
                 </div>
                 
             </div>

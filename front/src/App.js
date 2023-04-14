@@ -4,6 +4,8 @@ import './App.css';
 import Login from './pages/login';
 import Home from './pages/Home';
 import './css/main.css';
+import './css/soft-ui-dashboard-tailwind.min.css';
+
 
 
 
