@@ -4,10 +4,11 @@ import { BsLock } from 'react-icons/bs';
 import duini from '../img/duino.png';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import LoginHandle from '../utils/LoginHandle';
 function Login(){
     const [username, setUsername] = useState();
     const [userExist, setUserExist] = useState()
+    const [user, setUser] = useState()
     const API_BASE_URL = "https://server.duinocoin.com/balances.json";
     const navigate = useNavigate();
     
@@ -20,11 +21,25 @@ function Login(){
                 console.log(error);
             });
     }, []);
+
+    const usersApi = "https://server.duinocoin.com/balances.json"
+    console.log("Hello")
+    useEffect(() => {
+        axios.get(usersApi)
+            .then(response => {
+                setUser(response.data.usernameset)
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }, []);
+
     const handleSubmit = (event) => {
         event.preventDefault();
         
-
+        LoginHandle(username);
         if(userExist){
+            
             localStorage.setItem("username", username);
             navigate('/');
         }
