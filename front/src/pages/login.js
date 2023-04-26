@@ -37,7 +37,7 @@ function Login(){
     const handleSubmit = (event) => {
         event.preventDefault();
         
-        LoginHandle(username);
+        
         if(userExist){
             
             localStorage.setItem("username", username);
