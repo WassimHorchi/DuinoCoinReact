@@ -12,12 +12,14 @@ function Home()
     const cpu = useServerCPU();
     const ram = useServerRAM();
     const version = useServerVersion();
+    const myMine = localStorage.getItem("mining")
+    const username = localStorage.getItem("username")
     return(
         <>
             <div class="limiter">
                 <div className='container-login100' style={{display : "block"}}>
                     <div>
-                        <h2 className='text text-white'>Welcome, <span className='font-bold'>Wissem</span></h2>
+                        <h2 className='text text-white'>Welcome, <span className='font-bold'>{username}</span></h2>
                     </div>
                 <div class="flex flex-wrap -mx-3 mb-6 ">
           
@@ -29,7 +31,7 @@ function Home()
                     <div>
                       <p class="mb-0 font-sans font-semibold leading-normal text-sm">Your Mining Amount</p>
                       <h5 class="mb-0 font-bold">
-                        1,0258855455
+                       {myMine}
                       </h5>
                     </div>
                   </div>
