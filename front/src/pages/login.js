@@ -23,10 +23,10 @@ function Login(){
   };
 const handleLogin = () => {
     if(variableValue){
-        localStorage.setItem("username",variableName);
-    localStorage.setItem("mining", variableValue);
+      localStorage.setItem("username",variableName);
+      localStorage.setItem("mining", variableValue);
 
-    navigate('/');
+      navigate('/');
     }
     
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useEffect, useState} from 'react';
 import {useDuinoPrice,useAllTimeMined,useHashRate,useNetEnergyUsage,useServerCPU,useServerRAM,useServerVersion} from "../api/api";
 import { IoMdAnalytics } from 'react-icons/io';
 import { FaDollarSign,FaCoins,FaTachometerAlt,FaBolt , FaMicrochip, FaMemory, FaInfoCircle} from 'react-icons/fa';
@@ -14,6 +14,22 @@ function Home()
     const version = useServerVersion();
     const myMine = localStorage.getItem("mining")
     const username = localStorage.getItem("username")
+    const [mine, setMine] = useState(myMine)
+    const usersApi = "https://server.duinocoin.com/balances.json"
+    useEffect(() => {
+      const fetchData = async () =>{
+        try{
+          const response = await fetch(usersApi); // Replace with your API URL
+          const data = await response.json();
+          setMine(data[username])
+        }catch(error){
+          console.log(error.message)
+        }
+        
+      }
+      fetchData();
+    }, 5000);
+
     return(
         <>
             <div class="limiter">
@@ -31,7 +47,7 @@ function Home()
                     <div>
                       <p class="mb-0 font-sans font-semibold leading-normal text-sm">Your Mining Amount</p>
                       <h5 class="mb-0 font-bold">
-                       {myMine}
+                       {mine}
                       </h5>
                     </div>
                   </div>
