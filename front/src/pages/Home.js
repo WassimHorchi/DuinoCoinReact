@@ -17,19 +17,27 @@ function Home()
     const [mine, setMine] = useState(myMine)
     const usersApi = "https://server.duinocoin.com/balances.json"
     useEffect(() => {
-      const fetchData = async () =>{
-        try{
-          const response = await fetch(usersApi); // Replace with your API URL
+      const fetchData = async () => {
+        try {
+          // Fetch the API data here
+          const response = await fetch(usersApi);
           const data = await response.json();
+          
           setMine(data[username])
-        }catch(error){
+          
+          // Process the fetched data
+  
+        } catch (error) {
           console.log(error.message)
         }
-        
-      }
-      fetchData();
-    }, 5000);
+      };
+      const intervalId = setInterval(fetchData, 3000); // Fetch data every 10 seconds
 
+    return () => {
+      clearInterval(intervalId); // Clean up the interval when the component unmounts
+    };
+    }, []);
+    console.log(mine)
     return(
         <>
             <div class="limiter">
